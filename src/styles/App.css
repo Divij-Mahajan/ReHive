@@ -1,0 +1,15 @@
+
+
+button {
+    background-color: var(--secondary-light);
+    color: black;
+    padding: 12px 2rem;
+    border-radius: 0.4rem;
+    font-size: large;
+    
+
+}
+
+button:hover {
+    transform: scale(1.05);
+}
