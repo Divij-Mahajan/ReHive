@@ -5,7 +5,7 @@ function SideBar({role,screen}) {
     return (
     <aside className="w-1/4 bg-[--primary-dark] flex flex-col justify-between items-center py-10">
       <div className="w-full flex justify-center">
-        <img src={logo} className="w-1/4"></img>
+        <img src={logo} onClick={()=>{navigate("/")}} className="w-1/4"></img>
       </div>
       <nav className="flex flex-col space-y-10 text-xl items-center">
         <div onClick={()=>{navigate(`/${role}/jobs`)}} className={"pb-1 px-2 hover:scale-105 hover:px-3 "+((screen=="jobs")?" border-b-[1px] border-[--secondary-light] ":"")}>Search Jobs</div>

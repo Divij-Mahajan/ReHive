@@ -1,6 +1,6 @@
 import JobCard from "./jobcards";
 
-function Jobs() {
+function Jobs({role}) {
   let data = [{
     title: "SWE Intern",
     company: "ABC Company",
@@ -9,6 +9,7 @@ function Jobs() {
     referrers: 26,
     applications: 532,
     fee: 5,
+    bounty: 3,
     days: 10,
   }]
   return <div>
@@ -21,7 +22,7 @@ function Jobs() {
       />
     </div>
     <div>
-    {data.map((d)=><JobCard title={d.title} company={d.company} location={d.location} time={d.time} referrers={d.referrers} applications={d.applications} days={d.days} fee={d.fee}/>)}
+    {data.map((d)=><JobCard role={role} title={d.title} company={d.company} location={d.location} time={d.time} referrers={d.referrers} applications={d.applications} days={d.days} fee={d.fee} bounty={d.bounty}/>)}
     </div>
   </div>
 }

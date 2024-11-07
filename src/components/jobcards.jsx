@@ -1,11 +1,12 @@
-function JobCard({title,company,time,location,referrers,applications,fee,days}) {
+function JobCard({role,bounty,title,company,time,location,referrers,applications,fee,days}) {
   return (
     <div className="bg-[--primary-light] p-6 rounded-lg flex justify-between items-center text-[--secondary-light]">
       <div>
         <h2 className="text-xl font-semibold">{title}, {company}</h2>
         <p className="text-sm text-[#9CA3AF]">{time}, {location}</p>
         <p className="mt-2 text-sm">
-          Referrers: {referrers} &nbsp;&nbsp; Applications: {applications} &nbsp;&nbsp; Application Fee: {fee} HIVE
+          Referrers: {referrers} &nbsp;&nbsp; Applications: {applications} &nbsp;&nbsp; {(role=="seeker")?
+          `Application Fee: ${fee} HIVE`:`Bounty Tokens: ${bounty} HIVE`}
         </p>
       </div>
       <div className="text-right">

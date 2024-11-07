@@ -11,7 +11,7 @@ function Seeker() {
         <SideBar role={"seeker"} screen={screen}/>
         <div className="w-full p-10">
           {(screen=="jobs")?
-            <Jobs/>
+            <Jobs role={"seeker"}/>
           :(screen=="progress")?
           <Progress/>
         :(screen=="profile")?
