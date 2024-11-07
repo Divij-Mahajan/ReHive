@@ -1,13 +1,15 @@
 import { ReactTyped } from "react-typed";
 import "../styles/home.css"
 import image from "/logo.png"
+import { useNavigate } from "react-router-dom";
 function Home() {
+    const navigate=useNavigate()
     return <div className="w-full h-full">
         <div className="slant-background bg-[--primary-dark] w-full h-[150vh] absolute top-0 left-0 -z-20"></div>
         <div className="w-full h-full">
             <div className="flex justify-between items-center mt-2 px-7">
                 <img src={image} width={70} ></img>
-                <button className="h-12">Get Started</button>
+                <button className="h-12" onClick={()=>{navigate("/role")}}>Get Started</button>
             </div>
             <div className="w-full flex flex-col justify-start pt-44 items-center gap-10">
                 <ReactTyped
@@ -22,7 +24,7 @@ function Home() {
                 loop
                 />
                 <div className="text-5xl">ReHive Makes it Easy!</div>
-                <button className="bg-[--primary-dark] text-white">Get Started</button>
+                <button className="bg-[--primary-dark] text-white" onClick={()=>{navigate("/role")}}>Get Started</button>
                 <div className="w-3/5 h-[65vh] bg-[--primary-light] rounded-md mt-44 overflow-hidden shadow-2xl shadow-[--primary-dark]">
                 <iframe
                     width="100%"
