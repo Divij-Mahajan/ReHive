@@ -29,7 +29,7 @@ function Home() {
                 <iframe
                     width="100%"
                     height="100%"
-                    src={`https://www.youtube.com/embed/DJO_9auJhJQ?si=_-68ocyQJrz0IcV2?modestbranding=1&controls=0&rel=0&autohide=1`}
+                    src={`https://www.youtube.com/embed/wBdPmaDzynk?si=gjPw0y7bvOv98tTq?modestbranding=1&controls=0&rel=0&autohide=1`}
                     title="YouTube video player"
                     allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                 ></iframe>

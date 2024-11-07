@@ -11,7 +11,7 @@ return (
       <Route path='/' element={<Home />} />
       <Route path='/role' element={<Role />} />
       <Route path='/seeker/:screen' element={<Seeker />} />
-      <Route path='/referrer' element={<Referrer />} />
+      <Route path='/referrer/:screen' element={<Referrer />} />
    </Routes>
    </Router>
 )
