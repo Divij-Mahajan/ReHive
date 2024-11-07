@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom"
 import logo from "/logo.png"
-function SideBar({role}) {
+function SideBar({role,screen}) {
     const navigate=useNavigate()
     return (
     <aside className="w-1/4 bg-[--primary-dark] flex flex-col justify-between items-center py-10">
@@ -8,9 +8,9 @@ function SideBar({role}) {
         <img src={logo} className="w-1/4"></img>
       </div>
       <nav className="flex flex-col space-y-10 text-xl items-center">
-        <div onClick={()=>{navigate(`/${role}/jobs`)}} className=" border-b-[1px] pb-1 px-2 border-[--secondary-light] hover:scale-105 hover:px-3 duration-200">Search Jobs</div>
-        <div onClick={()=>{navigate(`/${role}/application`)}} className="pb-1 px-2 hover:scale-105 hover:px-3 duration-200">Applications</div>
-        <div onClick={()=>{navigate(`/${role}/profile`)}} className="pb-1 px-2 hover:scale-105 hover:px-3 duration-200">Profile</div>
+        <div onClick={()=>{navigate(`/${role}/jobs`)}} className={"pb-1 px-2 hover:scale-105 hover:px-3 "+((screen=="jobs")?" border-b-[1px] border-[--secondary-light] ":"")}>Search Jobs</div>
+        <div onClick={()=>{navigate(`/${role}/progress`)}} className={"pb-1 px-2 hover:scale-105 hover:px-3 "+((screen=="progress")?" border-b-[1px] border-[--secondary-light] ":"")}>Applications</div>
+        <div onClick={()=>{navigate(`/${role}/profile`)}} className={"pb-1 px-2 hover:scale-105 hover:px-3 "+((screen=="profile")?" border-b-[1px] border-[--secondary-light] ":"")}>Profile</div>
       </nav>
       <div className="flex space-x-12">
         <a target="_blank" href="https://github.com/Divij-Mahajan/ReHive" >
