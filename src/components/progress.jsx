@@ -1,4 +1,4 @@
-import ProgressCard from "./progresscard";
+import ProgressCard from "./progressCard";
 function Progress() {
   let data = [{
     title: "SWE Intern",
