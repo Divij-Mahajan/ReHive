@@ -20,6 +20,14 @@ function ProgressCard({title,company,time,location,status}) {
               <button className="text-sm p-2">Report No Mail</button>
             </div>
           </div>
+          :(status=="manual")?
+          <div >
+            <div>Manual Review</div>
+            <div className="text-sm text-white">Please review candidates as soon as possible.</div>
+            <div className="flex w-full justify-end gap-10 mt-10">
+              <button className="text-sm p-2">Review Candidates</button>
+            </div>
+          </div>
           :(status=="completed")?
           <div >
             <div>Completed</div>

@@ -1,11 +1,12 @@
 import ProgressCard from "./progressCard";
-function Progress() {
+function Progress({role}) {
+  // fetch data based on role
   let data = [{
     title: "SWE Intern",
     company: "ABC Company",
     time: "6 Months",
     location: "Bangalore",
-    status:"completed",
+    status:"manual",
   }]
   return <div>
     <div className="mb-8 flex items-center bg-white pl-3 rounded-lg">

@@ -8,8 +8,8 @@ function SideBar({role,screen}) {
         <img src={logo} onClick={()=>{navigate("/")}} className="w-1/4"></img>
       </div>
       <nav className="flex flex-col space-y-10 text-xl items-center">
-        <div onClick={()=>{navigate(`/${role}/jobs`)}} className={"pb-1 px-2 hover:scale-105 hover:px-3 "+((screen=="jobs")?" border-b-[1px] border-[--secondary-light] ":"")}>Search Jobs</div>
-        <div onClick={()=>{navigate(`/${role}/progress`)}} className={"pb-1 px-2 hover:scale-105 hover:px-3 "+((screen=="progress")?" border-b-[1px] border-[--secondary-light] ":"")}>Applications</div>
+        <div onClick={()=>{navigate(`/${role}/jobs`)}} className={"pb-1 px-2 hover:scale-105 hover:px-3 "+((screen=="jobs")?" border-b-[1px] border-[--secondary-light] ":"")}>Open Jobs</div>
+        <div onClick={()=>{navigate(`/${role}/progress`)}} className={"pb-1 px-2 hover:scale-105 hover:px-3 "+((screen=="progress")?" border-b-[1px] border-[--secondary-light] ":"")}>{role=="seeker"?"Applications":"Pending Referrals"}</div>
         <div onClick={()=>{navigate(`/${role}/profile`)}} className={"pb-1 px-2 hover:scale-105 hover:px-3 "+((screen=="profile")?" border-b-[1px] border-[--secondary-light] ":"")}>Profile</div>
       </nav>
       <div className="flex space-x-12">
