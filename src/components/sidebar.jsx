@@ -5,12 +5,13 @@ function SideBar({role,screen}) {
     return (
     <aside className="w-1/4 bg-[--primary-dark] flex flex-col justify-between items-center py-10">
       <div className="w-full flex justify-center">
-        <img src={logo} onClick={()=>{navigate("/")}} className="w-1/4"></img>
+        <i onClick={()=>{navigate("/")}} className="text-2xl absolute top-0 left-0 mt-4 ml-4 cursor-pointer  fa-solid fa-house hover:scale-110 duration-200"></i>
+        <img src={logo}  className="w-1/4"></img>
       </div>
       <nav className="flex flex-col space-y-10 text-xl items-center">
-        <div onClick={()=>{navigate(`/${role}/jobs`)}} className={"pb-1 px-2 hover:scale-105 hover:px-3 "+((screen=="jobs")?" border-b-[1px] border-[--secondary-light] ":"")}>Open Jobs</div>
-        <div onClick={()=>{navigate(`/${role}/progress`)}} className={"pb-1 px-2 hover:scale-105 hover:px-3 "+((screen=="progress")?" border-b-[1px] border-[--secondary-light] ":"")}>{role=="seeker"?"Applications":"Pending Referrals"}</div>
-        <div onClick={()=>{navigate(`/${role}/profile`)}} className={"pb-1 px-2 hover:scale-105 hover:px-3 "+((screen=="profile")?" border-b-[1px] border-[--secondary-light] ":"")}>Profile</div>
+        <div onClick={()=>{navigate(`/${role}/jobs`)}} className={"cursor-pointer  pb-1 px-2 hover:scale-105 hover:px-3 "+((screen=="jobs")?" border-b-[1px] border-[--secondary-light] ":"")}>Open Jobs</div>
+        <div onClick={()=>{navigate(`/${role}/progress`)}} className={"cursor-pointer  pb-1 px-2 hover:scale-105 hover:px-3 "+((screen=="progress")?" border-b-[1px] border-[--secondary-light] ":"")}>{role=="seeker"?"Applications":"Pending Referrals"}</div>
+        <div onClick={()=>{navigate(`/${role}/profile`)}} className={"cursor-pointer  pb-1 px-2 hover:scale-105 hover:px-3 "+((screen=="profile")?" border-b-[1px] border-[--secondary-light] ":"")}>Profile</div>
       </nav>
       <div className="flex space-x-12">
         <a target="_blank" href="https://github.com/Divij-Mahajan/ReHive" >
