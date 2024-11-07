@@ -6,12 +6,12 @@ function Role() {
     return <div>
         <div className="text-5xl h-full w-full flex flex-col p-7 items-center text-[--secondary-light]">Select your Role</div>
         <div className="flex h-full w-full justify-center gap-48 pt-12">
-            <div className="w-1/4 p-3 h-[60vh] flex flex-col justify-between rounded-lg border-[--secondary-light] border-2 items-center hover:scale-105 duration-200" onClick={()=>{navigate("/seeker")}}>
+            <div className="w-1/4 p-3 h-[60vh] flex flex-col justify-between rounded-lg border-[--secondary-light] border-2 items-center hover:scale-105 duration-200" onClick={()=>{navigate("/seeker/jobs")}}>
                 <div className="text-3xl text-[--secondary-light]">Seeker</div>
                 <img src={seekerImage} className="w-1/3"></img>
                 <div className="text-2xl text-[--secondary-light]">Looking for Referrals</div>
             </div>
-            <div className="w-1/4 p-3 h-[60vh] flex flex-col justify-between rounded-lg border-[--secondary-light] border-2 items-center hover:scale-105  duration-200" onClick={()=>{navigate("/referrer")}}>
+            <div className="w-1/4 p-3 h-[60vh] flex flex-col justify-between rounded-lg border-[--secondary-light] border-2 items-center hover:scale-105  duration-200" onClick={()=>{navigate("/referrer/jobs")}}>
                 <div className="text-3xl text-[--secondary-light]">Referrer</div>
                 <img src={refererrImage} className="w-1/3"></img>
                 <div className="text-2xl text-[--secondary-light]">Looking for Referrals</div>
