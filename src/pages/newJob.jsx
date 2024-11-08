@@ -21,11 +21,12 @@ function NewJob() {
         <div className="flex bg-[--secondary-dark] text-[--secondary-light]">
             <div className="flex-1 p-10 space-y-6">
                 <section className="mb-8">
-                    <h2 className="text-xl text-[--primary-dark] border-b border-[--primary-dark] font-bold pb-1 mb-6">Job Details</h2>
+                    {/* Job Details Heading */}
+                    <h2 className="text-xl text-white border-b border-white font-bold pb-1 mb-6">Job Details</h2>
                     
                     {/* Company Field */}
                     <div className="flex items-center mb-6">
-                        <label className="text-[--primary-dark] text-lg w-1/6">Company:</label>
+                        <label className="text-white text-lg w-1/6">Company:</label>
                         <input
                             type="text"
                             name="Company"
@@ -37,7 +38,7 @@ function NewJob() {
 
                     {/* Job Title Field */}
                     <div className="flex items-center mb-6">
-                        <label className="text-[--primary-dark] text-lg w-1/6">Job Title:</label>
+                        <label className="text-white text-lg w-1/6">Job Title:</label>
                         <input
                             type="text"
                             name="jobTitle"
@@ -49,7 +50,7 @@ function NewJob() {
 
                     {/* Duration Field */}
                     <div className="flex items-center mb-6">
-                        <label className="text-[--primary-dark] text-lg w-1/6">Duration:</label>
+                        <label className="text-white text-lg w-1/6">Duration:</label>
                         <input
                             type="text"
                             name="Duration"
@@ -61,7 +62,7 @@ function NewJob() {
 
                     {/* Location Field */}
                     <div className="flex items-center mb-6">
-                        <label className="text-[--primary-dark] text-lg w-1/6">Location:</label>
+                        <label className="text-white text-lg w-1/6">Location:</label>
                         <input
                             type="text"
                             name="Location"
@@ -73,7 +74,7 @@ function NewJob() {
 
                     {/* About Field */}
                     <div className="flex items-start mb-6">
-                        <label className="text-[--primary-dark] text-lg w-1/6">About:</label>
+                        <label className="text-white text-lg w-1/6">About:</label>
                         <textarea
                             name="About"
                             value={formData.About}
@@ -85,7 +86,7 @@ function NewJob() {
 
                     {/* Application Fee Field */}
                     <div className="flex items-center mb-6">
-                        <label className="text-[--primary-dark] text-lg w-1/6">Application Fee:</label>
+                        <label className="text-white text-lg w-1/6">Application Fee:</label>
                         <input
                             type="number"
                             name="applicationFee"
@@ -97,7 +98,7 @@ function NewJob() {
 
                     {/* Bounty Fee Field */}
                     <div className="flex items-center mb-6">
-                        <label className="text-[--primary-dark] text-lg w-1/6">Bounty Fee:</label>
+                        <label className="text-white text-lg w-1/6">Bounty Fee:</label>
                         <input
                             type="number"
                             name="bountyFee"
@@ -113,5 +114,3 @@ function NewJob() {
 }
 
 export default NewJob;
-
-
