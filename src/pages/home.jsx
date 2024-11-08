@@ -6,7 +6,14 @@ import name from "/name.png"
 import { useNavigate } from "react-router-dom";
 function Home() {
     const navigate=useNavigate()
-    return <div className="w-full bg-[--primary-dark] flex flex-col items-center p-10 pt-32  absolute top-0 left-0">
+    const cardTexts = [
+        "Earn by Referring others around",
+        "Find the right talent at ReHive",
+        "Benefit from shared networks",
+        "Grow with ReHive’s referral system",
+        "Join the ReHive community today",
+      ];
+    return <div className="w-full bg-[--primary-dark] flex flex-col items-center p-10 pt-32">
         <div className="flex w-full justify-around">
             <div className="flex flex-col pl-24 pt-12 space-y-10">
                 <div className="w-full">
@@ -30,7 +37,19 @@ function Home() {
                 <img src={home} className="w-2/3 ml-32 mt-32 z-50"></img>
             </div>
         </div>
-                <div className="w-3/5 h-[65vh] border-[#9da984] border-[0.01rem] bg-[--primary-light] rounded-md mt-44 overflow-hidden shadow-2xl shadow-[--primary-dark]">
+        {/* Scrolling cards section */}
+      <div className="scrolling-cards-wrapper mt-10">
+        <div className="scrolling-cards">
+          {[...cardTexts, ...cardTexts].map((text, index) => (
+            <div key={index} className="card">
+              <img src={log} alt="Icon" className="icon" />
+              <h3 className="card-title">{text}</h3>
+             
+            </div>
+          ))}
+        </div>
+      </div>
+                <div className="w-3/5 h-[65vh] bg-[--primary-light] rounded-md mt-24 overflow-hidden shadow-2xl shadow-[--primary-dark]">
                     <iframe
                         width="100%"
                         height="100%"

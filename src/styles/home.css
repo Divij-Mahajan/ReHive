@@ -5,3 +5,61 @@
 .Circle{
     background: radial-gradient(#6675613c 10%,#66756127 20%, #66756100 50% );
 }
+/* Scroll animation */
+@keyframes scroll {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-100%);
+    }
+  }
+  
+  /* Wrapper for scrolling cards */
+  .scrolling-cards-wrapper {
+    width: 100%;
+    overflow: hidden;
+  }
+  
+  /* Scrolling cards container */
+  .scrolling-cards {
+    display: flex;
+    animation: scroll 30s linear infinite;
+    gap: 1rem;
+  }
+  
+  /* Individual card styling */
+  .card {
+    min-width: 270px;
+  height: 200px;
+  background-color: var(--primary-light);
+  padding: 1rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+  color: white;
+  
+  /* Flexbox centering */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  .card:hover {
+    transform: scale(0.95); /* Increase size */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Increase shadow */
+  }
+  
+  .icon {
+    width: 3rem;
+    margin: 0 auto 0.5rem;
+  }
+  
+  .card-title {
+    font-weight: 400;
+    font-size: 1.25rem;
+  }
+  
+  
+  
