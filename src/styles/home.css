@@ -1,3 +1,7 @@
 .slant-background{
     clip-path: polygon(0% 0%, 80% 0%, 0% 80%);
 }
+
+.Circle{
+    background: radial-gradient(#6675613c 10%,#66756127 20%, #66756100 50% );
+}

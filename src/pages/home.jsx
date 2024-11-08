@@ -6,10 +6,10 @@ import name from "/name.png"
 import { useNavigate } from "react-router-dom";
 function Home() {
     const navigate=useNavigate()
-    return <div className="w-full bg-[--primary-dark] flex flex-col items-center p-10 pt-32">
+    return <div className="w-full bg-[--primary-dark] flex flex-col items-center p-10 pt-32  absolute top-0 left-0">
         <div className="flex w-full justify-around">
             <div className="flex flex-col pl-24 pt-12 space-y-10">
-                <div className="w-2/3">
+                <div className="w-full">
                  <img src={name} className="w-full "></img>
                 </div>
                 <ReactTyped
@@ -23,11 +23,14 @@ function Home() {
                 backSpeed={20}
                 loop
                 />
-                <button className="bg-[#CBDEA5] w-1/4 text-black" onClick={()=>{navigate("/role")}}>Get Started</button>
+                <button className="bg-[#CBDEA5] w-1/3 text-black" onClick={()=>{navigate("/role")}}>Get Started</button>
             </div>
-            <img src={home} className="w-1/3 mr-20 mt-20"></img>
+            <div className="">
+                <div className="absolute w-full h-full Circle z-0 -top-80 -right-56"></div>
+                <img src={home} className="w-2/3 ml-32 mt-32 z-50"></img>
+            </div>
         </div>
-                <div className="w-3/5 h-[65vh] bg-[--primary-light] rounded-md mt-44 overflow-hidden shadow-2xl shadow-[--primary-dark]">
+                <div className="w-3/5 h-[65vh] border-[#9da984] border-[0.01rem] bg-[--primary-light] rounded-md mt-44 overflow-hidden shadow-2xl shadow-[--primary-dark]">
                     <iframe
                         width="100%"
                         height="100%"
