@@ -5,6 +5,7 @@ import Progress from "../components/progress";
 import Profile from "../components/profile";
 import ReferralProfile from "../components/referrerProfile";
 import NewJob from "./newJob";
+import Review from "./review";
 
 
 function Referrer() {
@@ -21,6 +22,8 @@ function Referrer() {
                 <ReferralProfile/>
             :(screen=="new")?
                 <NewJob/>
+            :(screen=="review")?
+                <Review/>
             :<></>}
             </div>
         </div>
