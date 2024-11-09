@@ -5,6 +5,7 @@ import home from "/home.png";
 import name from "/name.png";
 import { useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
+import Footer from "../components/footer"; // Correct import
 
 function Home() {
     const navigate = useNavigate();
@@ -41,7 +42,7 @@ function Home() {
     }, []);
 
     return (
-        <div className="w-full bg-[--primary-dark] flex flex-col items-center p-10 pt-32">
+        <div className="w-full bg-[--primary-dark] flex flex-col items-center pt-32" style={{ minHeight: "100vh" }}>
             {/* Spark effect - Continuous Tail */}
             <div
                 className="spark-container"
@@ -72,7 +73,7 @@ function Home() {
                 ))}
             </div>
 
-            <div className="flex w-full justify-around">
+            <div className="flex w-full justify-around flex-grow">
                 <div className="flex flex-col pl-24 pt-12 space-y-10">
                     <div className="w-full">
                         <img src={name} className="w-full" />
@@ -111,16 +112,16 @@ function Home() {
                 </div>
             </div>
 
-            <div className="w-3/5 h-[65vh] bg-[--primary-light] rounded-md mt-24 overflow-hidden shadow-2xl shadow-[--primary-dark]">
+            <div className="w-3/5 h-[65vh] bg-[--primary-light] rounded-md mt-24 mb-20 overflow-hidden shadow-2xl shadow-[--primary-dark]">
                 <iframe
                     width="100%"
                     height="100%"
-                    src={`https://www.youtube.com/embed/wBdPmaDzynk?si=-7UfJ76GA9lguyQo?modestbranding=1&controls=0&rel=0&autohide=1`}
+                    src={`https://www.youtube.com/embed/K0kWefxfa3Y?modestbranding=1&controls=0&rel=0&autohide=1`}
                     title="YouTube video player"
                     allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                 ></iframe>
             </div>
-
+           
             {/* Spark animation keyframes */}
             <style>{`
                 @keyframes spark-animation {
@@ -138,6 +139,9 @@ function Home() {
                     }
                 }
             `}</style>
+
+            {/* Footer at the end of the page */}
+            <Footer style={{ marginTop: "auto" }} />  {/* Ensures Footer is at the bottom */}
         </div>
     );
 }
