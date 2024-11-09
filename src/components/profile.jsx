@@ -1,7 +1,7 @@
 import { useState } from "react";
 
 function Profile() {
-    const [formData, setFormData] = useState({
+    let f={
         name: '',
         email: '',
         gender: '',
@@ -12,7 +12,11 @@ function Profile() {
         resume: '',
         workExperience: '',
         skills: []
-    });
+    }
+    if(localStorage.getItem("Seeker Details")){
+        f=JSON.parse(localStorage.getItem("Seeker Details"))
+    }
+    const [formData, setFormData] = useState(f);
 
     const handleInputChange = (e) => {
         const { name, value } = e.target;
@@ -27,12 +31,20 @@ function Profile() {
         }
     };
 
+    const handleUpdateDetails=()=>{
+        localStorage.setItem("Seeker Details",JSON.stringify(formData))
+        
+    }
     return (
         <div className="flex bg-[--secondary-dark] text-[--secondary-light] p-8">
             <div className="flex-1 space-y-10">
                 <section className="mb-8">
                     {/* Personal Details Heading */}
+                    <div className="flex w-full justify-between mb-4 items-end px-3">
+
                     <h2 className="text-xl text-white mb-2">Personal Details</h2>
+                    <button onClick={handleUpdateDetails} className="text-lg py-2 px-4 bg-[--primary-dark] text-white">Update Details</button>
+                    </div>
                     <hr className="border-t border-white mb-4" />
                     <div className="space-y-4">
                         <div className="flex items-center space-x-4">
