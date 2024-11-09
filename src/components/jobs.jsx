@@ -1,19 +1,55 @@
 import { useNavigate } from "react-router-dom";
 import JobCard from "./jobcards";
+import { Client, PrivateKey } from '@hiveio/dhive';
+import { useEffect, useState } from "react";
 
 function Jobs({role}) {
+  let opts = {};
+  opts.addressPrefix = 'STM';
+                        opts.chainId =
+                            'beeab0de00000000000000000000000000000000000000000000000000000000';
+  const client = new Client('https://api.hive.blog', opts);
+
+  const getPosts=async () => {
+    client.database.getDiscussions('blog',{
+      tag:import.meta.env.VITE_ACCOUNT
+    }).then(result=>{
+      for (let i = 0; i < result.length; i++) {
+        const element = result[i];
+        if(element.title.startsWith("ReHive")){
+          let d=JSON.parse(element.json_metadata)
+          if(d.jobTitle&&d.applicationFee){
+            d['referrers']= 26
+            d['applications']=532
+            d['days']= 10
+            setData(()=>[...data,d])
+            console.log(d)
+          }
+        }
+      }
+    })
+  };
+  const [data, setData] = useState([])
+  useEffect(()=>{
+    getPosts()
+  },[])
+
+
   const navigate=useNavigate();
-  let data = [{
-    title: "SWE Intern",
-    company: "ABC Company",
-    time: "6 Months",
-    location: "Bangalore",
-    referrers: 26,
-    applications: 532,
-    fee: 5,
-    bounty: 3,
-    days: 10,
-  }]
+  // let data = [{
+  //   jobTitle: "SWE Intern",
+  //   Company: "ABC Company",
+  //   Duration: "6 Months",
+  //   Location: "Bangalore",
+  //   About: '',
+  //   applicationFee: 5,
+  //   bountyFee: 3,
+
+  //   referrers: 26,
+  //   applications: 532,
+  //   days: 10,
+  // }]
+
   return <div>
     <div className="mb-8 flex items-center ">
       <div className="w-full pl-3 rounded-lg bg-white flex items-center">
@@ -29,7 +65,7 @@ function Jobs({role}) {
       </div>}
     </div>
     <div>
-    {data.map((d)=><JobCard role={role} title={d.title} company={d.company} location={d.location} time={d.time} referrers={d.referrers} applications={d.applications} days={d.days} fee={d.fee} bounty={d.bounty}/>)}
+    {data.map((d)=><JobCard role={role} about={d.About} title={d.jobTitle} company={d.Company} location={d.Location} time={d.Duration} referrers={d.referrers} applications={d.applications} days={d.days} fee={d.applicationFee} bounty={d.bountyFee}/>)}
     </div>
   </div>
 }

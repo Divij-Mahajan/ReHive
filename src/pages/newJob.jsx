@@ -14,9 +14,9 @@ function NewJob() {
         );
         const account = import.meta.env.VITE_ACCOUNT;
         const title = "ReHive: "+formData.jobTitle +" " +formData.Company;
-        const body = "Company: "+formData.Company+"\nJob Title: "+formData.jobTitle+"\nDuration / Type: "+formData.Duration+"\nLocation: "+formData.Location+"\nAbout: "+formData.About+"\nApplication Fee(send to this account): "+formData.applicationFee+"\nBounty for Referrers: "+formData.bountyFee+"\nThis post is a part of ReHive project, please visit: 'https://rehive.vercel.app/' ";
+        const body = "Get Referrals easily at ReHive.\nCompany: "+formData.Company+"\nJob Title: "+formData.jobTitle+"\nDuration / Type: "+formData.Duration+"\nLocation: "+formData.Location+"\nAbout: "+formData.About+"\nApplication Fee(send to this account): "+formData.applicationFee+"\nBounty for Referrers: "+formData.bountyFee+"\nThis post is a part of ReHive project, please visit: 'https://rehive.vercel.app/'.\nComment your details below.";
         const taglist = 'rehive job '+formData.jobTitle.toLowerCase() +" " +formData.Company.toLowerCase();
-        const json_metadata = JSON.stringify({ tags: taglist });
+        const json_metadata = JSON.stringify(formData);
         const permlink = Math.random()
             .toString(36)
             .substring(2);
