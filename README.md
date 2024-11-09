@@ -23,22 +23,36 @@ ReHive is built on the Hive blockchain, enabling:
 3. **Blockchain Integration**:
    - All application and referral transactions are recorded on the Hive blockchain.
    - This ensures a fully transparent and trustworthy referral process.
+  
+## Installation
+
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/Divij-Mahajan/ReHive.git
+
+2. **Initialization:**
+   ```bash
+   npm install
+   npm run dev
+   ```
+
+3. **Hive dependencies:**
+   ```bash
+   npm install hivejs
+   npm install dhive
+   ```
 
 ## Revenue Model
 - **Transaction Fees:** Nominal fees from employers for hires made through ReHive.
 - **Premium Services:** Job listing promotions, token sales, and ad-based monetization.
 - **Referral Analytics:** Data-driven insights for employers on referral success rates and trends.
 
-## Impact
-ReHive aims to create a fair and merit-based hiring process, reducing dependency on luck and traditional connections. By incentivizing referrals with HIVE tokens, ReHive fosters active community engagement, reducing hiring costs and improving time-to-hire metrics.
 
-### Impact Measurement
-ReHive tracks:
-- Number of successful referrals
-- Reduction in time-to-hire
-- Candidate satisfaction through smart contract analytics
+## Tech-Stack
+- **Frontend**: React, HTML,CSS,Vite
+- **Backend**: Node.js
+- **Blockchain**: hivejs, HiveSigner, dhive
 
-These metrics ensure continuous platform improvement and alignment with community needs.
 
 ## Important Links
 - [Demo](https://youtu.be/wBdPmaDzynk)
