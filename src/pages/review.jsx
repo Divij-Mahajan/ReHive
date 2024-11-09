@@ -1,131 +1,57 @@
-import React from "react";
+import React, { useState } from "react";
 
-const JobApplicationCard = ({ name, university, email, onReject, onAccept }) => (
-  <div style={styles.card}>
-    <div style={styles.leftSection}>
-      <h3 style={styles.name}>{name}</h3>
-      <p style={styles.university}>{university}</p>
-      <p style={styles.email}>{email}</p>
+const JobApplicationCard = ({ name, reusme, university, email}) => {
+    const onAccept=()=>{
+
+    }
+  return <div className="bg-[--primary-light] rounded-lg flex justify-between p-5 mb-5 text-white">
+    <div className="flex flex-col">
+      <h3 className="text-lg font-bold m-0">{name}</h3>
+      <p className="text-sm opacity-70 my-1">{university}</p>
+      <p className="text-sm opacity-70">{email}</p>
     </div>
-    <div style={styles.rightSection}>
-      <a href="#" style={styles.resumeLink}>Resume Link</a>
-      <p style={styles.note}>Please click accept only after sending referral mail</p>
-      <div style={styles.buttonContainer}>
-        <button style={styles.rejectButton} onClick={onReject}>Reject</button>
-        <button style={styles.acceptButton} onClick={onAccept}>Accept</button>
+    <div className="flex flex-col items-end">
+      <a href="#" className="text-[#CBDEA5] no-underline mb-2 text-sm hover:scale-105">Resume Link</a>
+      <p className="text-xs opacity-70 text-right mb-2">Please click accept only after sending referral mail</p>
+      <div className="flex gap-3">
+
+        <button
+          className="bg-[--secondary-light] text-[#31342C] px-5 py-2 rounded-md cursor-pointer"
+          onClick={onAccept}
+        >
+          Accept
+        </button>
       </div>
     </div>
   </div>
-);
-
-const JobApplicationList = () => (
-  <div style={styles.rightContainer}>
-    <div style={styles.header}>
-      <h2 style={styles.jobTitle}>SWE Intern, ABC Company</h2>
-      <p style={styles.durationLocation}>6 Months, Bangalore</p>
-    </div>
-    <JobApplicationCard
-      name="Rhytham Aggarwal"
-      university="Delhi Technological University"
-      email="aggarwalrhytham2003@gmail.com"
-      onReject={() => alert("Rejected Rhytham")}
-      onAccept={() => alert("Accepted Rhytham")}
-    />
-    <JobApplicationCard
-      name="Divij Mahajan"
-      university="Delhi Technological University"
-      email="d.mahajan2004@gmail.com"
-      onReject={() => alert("Rejected Divij")}
-      onAccept={() => alert("Accepted Divij")}
-    />
-  </div>
-);
-
-const styles = {
-  rightContainer: {
-    width: "70%", // Adjust this based on available space
-    margin: "0 auto",
-    padding: "20px",
-  },
-  header: {
-    display: "flex",
-    justifyContent: "space-between",
-    alignItems: "center",
-    marginBottom: "20px",
-  },
-  jobTitle: {
-    fontSize: "24px",
-    color: "white",
-  },
-  durationLocation: {
-    fontSize: "16px",
-    color: "white",
-    opacity: "0.7",
-  },
-  card: {
-    backgroundColor: "#31342C",
-    borderRadius: "12px",
-    display: "flex",
-    justifyContent: "space-between",
-    padding: "20px",
-    marginBottom: "20px",
-    color: "white",
-  },
-  leftSection: {
-    display: "flex",
-    flexDirection: "column",
-  },
-  name: {
-    fontSize: "18px",
-    fontWeight: "bold",
-    margin: 0,
-  },
-  university: {
-    fontSize: "14px",
-    opacity: "0.7",
-    margin: "4px 0",
-  },
-  email: {
-    fontSize: "14px",
-    opacity: "0.7",
-  },
-  rightSection: {
-    display: "flex",
-    flexDirection: "column",
-    alignItems: "flex-end",
-  },
-  resumeLink: {
-    color: "#CBDEA5",
-    textDecoration: "none",
-    marginBottom: "8px",
-    fontSize: "14px",
-  },
-  note: {
-    fontSize: "12px",
-    opacity: "0.7",
-    textAlign: "right",
-    marginBottom: "10px",
-  },
-  buttonContainer: {
-    display: "flex",
-    gap: "10px",
-  },
-  rejectButton: {
-    backgroundColor: "#A7A398",
-    color: "#31342C",
-    padding: "8px 20px",
-    border: "none",
-    borderRadius: "8px",
-    cursor: "pointer",
-  },
-  acceptButton: {
-    backgroundColor: "#A7A398",
-    color: "#31342C",
-    padding: "8px 20px",
-    border: "none",
-    borderRadius: "8px",
-    cursor: "pointer",
-  },
 };
+
+const JobApplicationList = () => {
+    const [data, setData] = useState({
+        title:"SWE Intern",
+        company:"ABC Company",
+        time:"6 Months",
+        location:"Bangalore",
+        comments:[
+            {
+                name:"Rhytham Aggarwal",
+                university:"Delhi Technological University",
+                email:"aggarwalrhytham2003@gmail.com",
+                resume:"https://github.com/Divij-Mahajan/ReHive"
+            },
+        ]
+    })
+
+    return <div className="w-[70%] mx-auto p-5">
+    <div className="flex justify-between items-end mb-5">
+      <h2 className="text-2xl text-white">{data.title}, {data.company}</h2>
+      <p className="text-base text-white opacity-70">{data.time}, {data.location}</p>
+    </div>
+    {data.comments.map((comment)=>{
+        return <JobApplicationCard name={comment.name} email={comment.email} university={comment.university} resume={comment.resume} />
+    })}
+  </div>
+
+}
 
 export default JobApplicationList;

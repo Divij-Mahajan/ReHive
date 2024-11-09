@@ -86,7 +86,7 @@ function JobCard({role,bounty,about,title,company,time,location,referrers,applic
         </p>
       </div>
       <div className="text-start">
-        {(applied)?<div className="cursor-not-allowed bg-[#867b67] text-[#2A2A25] mb-12 py-2 px-4 rounded-lg font-medium">Applied</div>:
+        {(applied&&role=="seeker")?<div className="cursor-not-allowed bg-[#867b67] text-[#2A2A25] mb-12 py-2 px-4 rounded-lg font-medium">Applied</div>:
 
           <button onClick={()=>{
             if(role=="seeker"){
