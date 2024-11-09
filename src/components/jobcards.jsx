@@ -92,7 +92,31 @@ function JobCard({role,bounty,about,title,company,time,location,referrers,applic
             if(role=="seeker"){
               handleApply()
             }else{
-              navigate("/referrer/review")
+              let token,client;
+              try {
+                token = window.location.href.split("?")[1].split("&")[0].split("=")[1]
+              } catch {
+                token = ""
+              }
+              if (token != "") {
+                client = new hivesigner.Client({
+                    app: 'demo',
+                    callbackURL: window.location.href,
+                    scope: ['vote', 'comment', "transfer"],
+                    accessToken: token
+                });
+              } else {
+                  client = new hivesigner.Client({
+                      app: 'demo',
+                      callbackURL: window.location.href,
+                      scope: ['vote', 'comment', "transfer"],
+                  });
+                  let state;
+                  var link = client.getLoginURL(state);
+                  window.location.replace(link);
+              }
+              navigate('/referrer/review', { state:{permLink,title,company,location,time,token} })
+              
             }
           }} className="bg-[#D2C7B2] text-[#2A2A25] mb-12 py-2 px-4 rounded-lg font-medium">{(role=="seeker")?"Apply Now":"Refer This Job"}</button>
         }
