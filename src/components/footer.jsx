@@ -153,7 +153,7 @@ const Footer = () => {
         <p style={{ color: "#bbb", marginTop: "20px" }}>© {new Date().getFullYear()} ReHive. All rights reserved.</p>
       </div>
     </footer>
-  );
+  ); 
 };
 
 export default Footer;
