@@ -14,9 +14,11 @@ function Jobs({role}) {
     client.database.getDiscussions('blog',{
       tag:import.meta.env.VITE_ACCOUNT
     }).then(result=>{
+      console.log(result)
+      let ds=[]
       for (let i = 0; i < result.length; i++) {
         const element = result[i];
-        if(element.title.startsWith("ReHive")){
+        //if(element.title.startsWith("ReHive")){
           let d=JSON.parse(element.json_metadata)
           d['permLink']=element.permlink
           d['applied']=false
@@ -28,15 +30,16 @@ function Jobs({role}) {
                 break;
               }
             }
-          }
-          if(d.jobTitle&&d.applicationFee){
+          //}
+          //if(d.jobTitle!=""&&d.applicationFee!=""){
             d['referrers']= 26
             d['applications']=532
             d['days']= 10
-            setData(()=>[...data,d])
+            ds.push(d)
             console.log(d)
+            //}
           }
-        }
+          setData(()=>ds)
       }
     })
   };
@@ -75,7 +78,7 @@ function Jobs({role}) {
        <i className="fa-solid fa-plus text-xl"></i><div >New Job</div>
       </div>}
     </div>
-    <div>
+    <div className="h-full flex flex-col gap-4">
     {data.map((d)=><JobCard role={role} about={d.About} title={d.jobTitle} company={d.Company} location={d.Location} time={d.Duration} referrers={d.referrers} applications={d.applications} days={d.days} fee={d.applicationFee} bounty={d.bountyFee} permLink={d.permLink} applied={d.applied}/>)}
     </div>
   </div>
