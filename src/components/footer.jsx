@@ -117,7 +117,7 @@ const Footer = () => {
     <footer style={footerStyle}>
       <div style={containerStyle}>
         <div style={logoContainerStyle}>
-          <img src="../public/logo.png" alt="ReHive Logo" style={logoStyle} />
+          <img src="/logo.png" alt="ReHive Logo" style={logoStyle} />
           <h2 style={headingStyle}>ReHive</h2>
         </div>
 
