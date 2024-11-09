@@ -18,6 +18,17 @@ function Jobs({role}) {
         const element = result[i];
         if(element.title.startsWith("ReHive")){
           let d=JSON.parse(element.json_metadata)
+          d['permLink']=element.permlink
+          d['applied']=false
+          if(localStorage.getItem('Seeker Applied')){
+            let l=JSON.parse(localStorage.getItem('Seeker Applied'))
+            for (let i = 0; i < l.length; i++) {
+              if(l[i]==element.permlink){
+                d['applied']=true;
+                break;
+              }
+            }
+          }
           if(d.jobTitle&&d.applicationFee){
             d['referrers']= 26
             d['applications']=532
@@ -65,7 +76,7 @@ function Jobs({role}) {
       </div>}
     </div>
     <div>
-    {data.map((d)=><JobCard role={role} about={d.About} title={d.jobTitle} company={d.Company} location={d.Location} time={d.Duration} referrers={d.referrers} applications={d.applications} days={d.days} fee={d.applicationFee} bounty={d.bountyFee}/>)}
+    {data.map((d)=><JobCard role={role} about={d.About} title={d.jobTitle} company={d.Company} location={d.Location} time={d.Duration} referrers={d.referrers} applications={d.applications} days={d.days} fee={d.applicationFee} bounty={d.bountyFee} permLink={d.permLink} applied={d.applied}/>)}
     </div>
   </div>
 }
