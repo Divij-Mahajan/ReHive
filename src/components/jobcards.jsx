@@ -115,7 +115,7 @@ function JobCard({role,bounty,about,title,company,time,location,referrers,applic
                   var link = client.getLoginURL(state);
                   window.location.replace(link);
               }
-              navigate('/referrer/review', { state:{permLink,title,company,location,time,token} })
+              navigate('/referrer/review', { state:{permLink,title,company,location,time,token,bounty} })
               
             }
           }} className="bg-[#D2C7B2] text-[#2A2A25] mb-12 py-2 px-4 rounded-lg font-medium">{(role=="seeker")?"Apply Now":"Refer This Job"}</button>

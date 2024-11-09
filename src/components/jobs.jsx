@@ -22,6 +22,11 @@ function Jobs({role}) {
           let d=JSON.parse(element.json_metadata)
           d['permLink']=element.permlink
           d['applied']=false
+          d['referrers']= 26
+          d['applications']=532
+          d['days']= 10
+          ds.push(d)
+          console.log(d)
           if(localStorage.getItem('Seeker Applied')){
             let l=JSON.parse(localStorage.getItem('Seeker Applied'))
             for (let i = 0; i < l.length; i++) {
@@ -32,15 +37,10 @@ function Jobs({role}) {
             }
           //}
           //if(d.jobTitle!=""&&d.applicationFee!=""){
-            d['referrers']= 26
-            d['applications']=532
-            d['days']= 10
-            ds.push(d)
-            console.log(d)
             //}
           }
-          setData(()=>ds)
-      }
+        }
+        setData(()=>ds)
     })
   };
   const [data, setData] = useState([])

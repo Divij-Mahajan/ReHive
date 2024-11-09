@@ -3,8 +3,8 @@ import { useLocation } from "react-router-dom";
 import { Client, PrivateKey } from '@hiveio/dhive';
 import hivesigner from "hivesigner"
 
-const JobApplicationCard = ({ name, resume, university, email,client,author,permLink,postPermLink}) => {
-
+const JobApplicationCard = ({ name, resume, university, email,client,author,permLink,postPermLink,bounty}) => {
+    const [status, setStatus] = useState(false)
     const onAccept = () => {
       client.me().then(
         r=>{
@@ -20,6 +20,34 @@ const JobApplicationCard = ({ name, resume, university, email,client,author,perm
             localStorage.setItem("Referrer Past",JSON.stringify([...JSON.parse(localStorage.getItem("Referrer Past")),postPermLink]))
           }
         })
+        const privateKey = PrivateKey.fromString(
+          import.meta.env.VITE_ACTIVE
+        )
+        const transf = new Object();
+        transf.to = r.user;
+        transf.from = import.meta.env.VITE_ACCOUNT;
+        transf.amount =  bounty +' HIVE';
+        transf.memo = 'Referrer Bounty';
+        let opts = {};
+      opts.addressPrefix = 'STM';
+                            opts.chainId =
+                                'beeab0de00000000000000000000000000000000000000000000000000000000';
+      //connect to a Hive node, testnet in this case
+      const clientH = new Client('https://api.hive.blog', opts);
+        //broadcast the transfer
+        
+        clientH.broadcast.transfer(transf, privateKey).then(
+            function(result) {
+                console.log(
+                    'included in block: ' + result.block_num,
+                    'expired: ' + result.expired
+                );
+            },
+            function(error) {
+                console.error(error);
+            }
+        );
+        setStatus(true)
       })
     };
   return <div className="bg-[--primary-light] rounded-lg flex justify-between p-5 mb-5 text-white">
@@ -32,13 +60,15 @@ const JobApplicationCard = ({ name, resume, university, email,client,author,perm
       <a href={resume} target="_blank" className="text-[#CBDEA5] no-underline mb-2 text-sm hover:scale-105">Resume Link</a>
       <p className="text-xs opacity-70 text-right mb-2">Please click accept only after sending referral mail</p>
       <div className="flex gap-3">
+        {(status)?<div>Accepted</div>:
 
-        <button
+          <button
           className="bg-[--secondary-light] text-[#31342C] px-5 py-2 rounded-md cursor-pointer"
           onClick={onAccept}
-        >
+          >
           Accept
         </button>
+        }
       </div>
     </div>
   </div>
@@ -52,6 +82,7 @@ const JobApplicationList = () => {
   const time = location.state?.time;
   const company = location.state?.company;
   const token = location.state?.token;
+  const bounty = location.state?.bounty;
   let client = new hivesigner.Client({
     app: 'demo',
     callbackURL: window.location.href,
@@ -116,7 +147,7 @@ const JobApplicationList = () => {
     </div>
     {comments.length==0?"No Seekers Found":""}
     {comments.map((comment)=>{
-        return <JobApplicationCard name={comment.name} email={comment.email} university={comment.university} resume={comment.resume} client={client} permLink={comment.permLink} author={comment.author} postPermLink={permLink}/>
+        return <JobApplicationCard name={comment.name} email={comment.email} university={comment.university} resume={comment.resume} client={client} permLink={comment.permLink} author={comment.author} postPermLink={permLink} bounty={bounty} />
     })}
   </div>
 
