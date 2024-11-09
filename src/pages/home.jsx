@@ -30,7 +30,7 @@ function Home() {
                 backSpeed={20}
                 loop
                 />
-                <button className="bg-[#CBDEA5] w-1/3 text-black" onClick={()=>{navigate("/role")}}>Get Started</button>
+                <button className="bg-[#CBDEA5] w-1/3 text-black z-50" onClick={()=>{navigate("/role")}}>Get Started</button>
             </div>
             <div className="">
                 <div className="absolute w-full h-full Circle z-0 -top-80 -right-56"></div>
